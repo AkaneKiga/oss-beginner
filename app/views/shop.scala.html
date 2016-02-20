@@ -1,0 +1,26 @@
+@(keyword: String, shops: List[models.Shop])
+
+@main("店登録") {
+	@helper.form(action = routes.ShopController.index()) {
+		<input type="text" name="q" value="@keyword">
+		<input type="submit" value="検索">
+   }
+   @if(shops.length > 0) {
+	<table class="table">
+	　　<thead>
+	  		<tr>
+	    	  	<th>名前</th>
+	    		<th>リンク</th>
+	    	</tr>	
+  		</thead>
+	  	<tbody>
+  		@for(s <- shops) {
+    	<tr>
+      		<td>@s.name</td>
+      		<td><a href="@s.url">@s.url</a></td>
+    	</tr>
+  		}
+  		</tbody>
+	</table>
+	}
+}
