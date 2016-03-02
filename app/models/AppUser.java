@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
@@ -13,6 +14,9 @@ import play.data.validation.Constraints;
 
 @Entity
 public class AppUser extends Model {
+	
+	@Id
+	public Long id;
 
 	/**
 	 * ユーザー名
